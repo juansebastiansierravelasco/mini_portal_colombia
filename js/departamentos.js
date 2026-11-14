@@ -13,6 +13,7 @@ Promise.all([
     const regiones = datos[1];
 
     const lista = document.getElementById("lista-departamentos");
+    const listaRegiones = document.getElementById("lista-regiones");
     lista.innerHTML="";
     if (departamentos.length >= 15) {
     console.log("Se cumple el mínimo de departamentos");
@@ -46,7 +47,7 @@ Promise.all([
         }
     });
 
-   lista.innerHTML += `
+   listaRegiones.innerHTML += `
     <div class="regiones">
         <h3>${region.name}</h3>
         <p>Cantidad de departamentos: ${contador}</p>
