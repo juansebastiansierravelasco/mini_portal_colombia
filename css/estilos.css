@@ -1,4 +1,3 @@
-/* Configuración general */
 * {
     margin: 0;
     padding: 0;
@@ -7,11 +6,10 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #e5eee8;
+    background-color: #F5F7FA;
     color: #26352b;
     padding: 30px;
 }
-
 .navegacion {
     display: flex;
     justify-content: space-between;
@@ -22,7 +20,7 @@ body {
 .volver,
 .enlace-platos {
     color: white;
-    background-color: #287447;
+    background-color: #003893;
     padding: 12px 18px;
     border-radius: 8px;
     text-decoration: none;
@@ -32,17 +30,24 @@ body {
 
 .volver:hover,
 .enlace-platos:hover {
-    background-color: #1d5735;
+    background-color: #CE1126;
 }
-
 
 h1, h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: #245c3b;
+    color: #003893;
 }
 
-/* Tarjetas de departamentos */
+h1 {
+    border-bottom: 5px solid #FCD116;
+    padding-bottom: 12px;
+}
+
+/* ==============================
+   TARJETAS DE DEPARTAMENTOS
+============================== */
+
 #lista-departamentos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -52,14 +57,21 @@ h1, h2 {
 
 .tarjeta-departamento {
     background-color: white;
-    border: 1px solid #d5e2d5;
+    border: 1px solid #d5dce5;
+    border-top: 5px solid #FCD116;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-departamento:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .tarjeta-departamento h3 {
-    color: #287447;
+    color: #CE1126;
     margin-bottom: 12px;
 }
 
@@ -68,7 +80,10 @@ h1, h2 {
     line-height: 1.5;
 }
 
-/* Resumen de regiones */
+/* ==============================
+   RESUMEN DE REGIONES
+============================== */
+
 #lista-regiones {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -77,15 +92,20 @@ h1, h2 {
 
 .regiones {
     background-color: white;
-    border: 1px solid #c9dfcc;
-    border-left: 5px solid #398653;
+    border: 1px solid #d5dce5;
+    border-left: 5px solid #003893;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s;
+}
+
+.regiones:hover {
+    transform: translateY(-5px);
 }
 
 .regiones h3 {
-    color: #287447;
+    color: #CE1126;
     margin-bottom: 10px;
 }
 
@@ -93,11 +113,14 @@ h1, h2 {
     font-size: 16px;
 }
 
-/* Enlace para volver */
+/* ==============================
+   ENLACES
+============================== */
+
 a {
     display: inline-block;
     margin-top: 30px;
-    color: #287447;
+    color: #003893;
     text-decoration: none;
     font-weight: bold;
 }
@@ -106,39 +129,10 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Computadoras */
-@media (min-width: 901px) {
-    #lista-departamentos {
-        grid-template-columns: repeat(3, 1fr);
-    }
+/* ==============================
+   CONTENEDOR DE PLATOS TÍPICOS
+============================== */
 
-    #lista-regiones {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Tabletas */
-@media (max-width: 900px) {
-    #lista-departamentos,
-    #lista-regiones {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Celulares */
-@media (max-width: 600px) {
-    body {
-        padding: 15px;
-    }
-
-    #lista-departamentos,
-    #lista-regiones {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* Contenedor de platos típicos */
 #lista-platos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -146,30 +140,35 @@ a:hover {
     margin-top: 30px;
 }
 
-/* Tarjetas de platos */
+/* ==============================
+   TARJETAS DE PLATOS
+============================== */
+
 .tarjeta-plato {
     background-color: white;
-    border: 1px solid #d5e2d5;
+    border: 1px solid #d5dce5;
+    border-top: 5px solid #CE1126;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Efecto al pasar el cursor */
 .tarjeta-plato:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Nombre del plato */
+
 .tarjeta-plato h3 {
-    color: #287447;
+    color: #003893;
     margin-bottom: 15px;
     text-align: center;
 }
 
 /* Imágenes */
+
 .tarjeta-plato img {
     width: 100%;
     height: 200px;
@@ -179,30 +178,59 @@ a:hover {
 }
 
 /* Información */
+
 .tarjeta-plato p {
     color: #26352b;
     margin-bottom: 10px;
     line-height: 1.5;
 }
 
-/* Tabletas */
+/* ==============================
+   COMPUTADORES
+============================== */
+
+@media (min-width: 901px) {
+    #lista-departamentos,
+    #lista-regiones,
+    #lista-platos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ==============================
+   TABLETAS
+============================== */
+
 @media (max-width: 900px) {
+    #lista-departamentos,
+    #lista-regiones,
     #lista-platos {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Celulares */
+/* ==============================
+   CELULARES
+============================== */
+
 @media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    #lista-departamentos,
+    #lista-regiones,
     #lista-platos {
         grid-template-columns: 1fr;
     }
 
-    body {
-        padding: 15px;
+    .navegacion {
+        gap: 10px;
+        flex-wrap: wrap;
     }
 
     .tarjeta-plato img {
         height: 220px;
     }
 }
+
