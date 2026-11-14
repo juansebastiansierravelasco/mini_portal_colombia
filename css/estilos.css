@@ -4,6 +4,118 @@
     box-sizing: border-box;
 }
 
+
+
+/* ==============================
+   PORTADA PRINCIPAL
+============================== */
+
+.portada {
+    background: linear-gradient(120deg, #FCD116, #003893, #CE1126);
+    color: white;
+    text-align: center;
+    padding: 55px 20px;
+    border-radius: 15px;
+    margin-bottom: 35px;
+}
+
+.portada h1 {
+    color: white;
+    border: none;
+    margin-bottom: 15px;
+}
+
+.portada p {
+    font-size: 18px;
+}
+
+/* ==============================
+   CONTENIDO DEL INICIO
+============================== */
+
+.inicio {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.inicio h2 {
+    margin-bottom: 15px;
+}
+
+.inicio > p {
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #003893;
+}
+
+/* ==============================
+   OPCIONES PRINCIPALES
+============================== */
+
+.opciones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.opcion {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    border-top: 5px solid #FCD116;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.opcion:hover {
+    transform: translateY(-5px);
+}
+
+.opcion h3 {
+    color: #003893;
+    margin-bottom: 15px;
+}
+
+.opcion p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.opcion a {
+    background-color: #003893;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.opcion a:hover {
+    background-color: #CE1126;
+}
+.pie {
+    text-align: center;
+    margin-top: 45px;
+    padding: 20px;
+    border-top: 3px solid #FCD116;
+}
+.pie p {
+    color: #003893;
+    font-weight: bold;
+    font-size: 15px;
+}
+@media (max-width: 600px) {
+    .opciones {
+        grid-template-columns: 1fr;
+    }
+
+    .portada {
+        padding: 35px 15px;
+    }
+}
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #F5F7FA;
