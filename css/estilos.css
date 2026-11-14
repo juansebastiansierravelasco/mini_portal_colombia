@@ -136,3 +136,73 @@ a:hover {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* Contenedor de platos típicos */
+#lista-platos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Tarjetas de platos */
+.tarjeta-plato {
+    background-color: white;
+    border: 1px solid #d5e2d5;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto al pasar el cursor */
+.tarjeta-plato:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Nombre del plato */
+.tarjeta-plato h3 {
+    color: #287447;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Imágenes */
+.tarjeta-plato img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Información */
+.tarjeta-plato p {
+    color: #26352b;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Tabletas */
+@media (max-width: 900px) {
+    #lista-platos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    #lista-platos {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: 15px;
+    }
+
+    .tarjeta-plato img {
+        height: 220px;
+    }
+}

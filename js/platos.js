@@ -10,11 +10,24 @@ fetch("https://api-colombia.com/api/v1/TypicalDish")
 
   data.forEach(plato => {
 
+
+let imagen = plato.imageUrl;
+
+if (plato.name.toLowerCase().includes("tamal tolimense")) {
+    imagen = "imagenes/tamal.png";
+}
+else if (plato.name.toLowerCase().includes("arroz de lisa")) {
+    imagen = "imagenes/Arrozdelisa.png";
+}
+else if (plato.name.toLowerCase().includes("dulce de guayaba")) {
+    imagen = "imagenes/Dulcedeguayaba.png";
+}
+
+console.log(plato.name, imagen);
         lista.innerHTML += `
         <div class="tarjeta-plato">
             <h3>${plato.name}</h3>
-
-            <img src="${plato.imageUrl}" alt="${plato.name}">
+            <img src="${imagen}" alt="${plato.name}">
 
             <p>Descripcion: ${plato.description}</p>
 
