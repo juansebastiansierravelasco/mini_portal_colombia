@@ -29,22 +29,24 @@ Platos típicos: https://api-colombia.com/api/v1/TypicalDish
 
 mini-portal-colombia/
 │
+├── README.md
 ├── index.html
 ├── departamentos.html
 ├── platos.html
 │
+├── imagenes/
+│   ├── tamal.png
+│   ├── Arrozdelisa.png
+│   ├── Dulcedeguayaba.png
+│   ├── inicio.png
+│   ├── departamentos.png
+│   └── platos.png
 ├── css/
 │   └── estilos.css
 │
 ├── js/
 │   ├── departamentos.js
 │   └── platos.js
-│
-└── imagenes/
-    ├── tamal.png
-    ├── Arrozdelisa.png
-    └── Dulcedeguayaba.png
-
 ## 4. Instrucciones de uso
 
 1. Descargar o clonar el repositorio del proyecto.
