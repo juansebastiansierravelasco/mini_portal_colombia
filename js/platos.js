@@ -1,51 +1,53 @@
 fetch("https://api-colombia.com/api/v1/TypicalDish")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`Error HTTP: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    const lista = document.getElementById("lista-platos");
 
- .then(response => {
-        return response.json();
-    })
+    // Borra el "Cargando platos típicos..." de forma moderna
+    lista.replaceChildren();
 
-    .then(data => {
- const lista =document.getElementById("lista-platos");
- lista.innerHTML="";
+    data.forEach((plato) => {
+      let imagen = plato.imageUrl;
 
-  data.forEach(plato => {
+      if (plato.name.toLowerCase().includes("tamal tolimense")) {
+        imagen = "imagenes/tamal.png";
+      } else if (plato.name.toLowerCase().includes("arroz de lisa")) {
+        imagen = "imagenes/Arrozdelisa.png";
+      } else if (plato.name.toLowerCase().includes("dulce de guayaba")) {
+        imagen = "imagenes/Dulcedeguayaba.png";
+      }
 
+      // Crea la tarjeta respetando exactamente tu clase CSS
+      const tarjeta = document.createElement("div");
+      tarjeta.classList.add("tarjeta-plato");
 
-let imagen = plato.imageUrl;
+      const titulo = document.createElement("h3");
+      titulo.textContent = plato.name;
 
-if (plato.name.toLowerCase().includes("tamal tolimense")) {
-    imagen = "imagenes/tamal.png";
-}
-else if (plato.name.toLowerCase().includes("arroz de lisa")) {
-    imagen = "imagenes/Arrozdelisa.png";
-}
-else if (plato.name.toLowerCase().includes("dulce de guayaba")) {
-    imagen = "imagenes/Dulcedeguayaba.png";
-}
+      const img = document.createElement("img");
+      img.src = imagen;
+      img.alt = plato.name;
 
-console.log(plato.name, imagen);
-        lista.innerHTML += `
-        <div class="tarjeta-plato">
-            <h3>${plato.name}</h3>
-            <img src="${imagen}" alt="${plato.name}">
+      const desc = document.createElement("p");
+      desc.textContent = `Descripción: ${plato.description}`;
 
-            <p>Descripcion: ${plato.description}</p>
+      const ing = document.createElement("p");
+      ing.textContent = `Ingredientes: ${plato.ingredients}`;
 
-            <p>Ingredientes: ${plato.ingredients}</p>
+      const depto = document.createElement("p");
+      depto.textContent = `Departamento: ${plato.department.name}`;
 
-            <p>Departamento: ${plato.department.name}</p>
-
-        </div>
-    `;
-
-
+      tarjeta.append(titulo, img, desc, ing, depto);
+      lista.append(tarjeta);
     });
-})
-
-.catch(error => {
+  })
+  .catch((error) => {
     const listaError = document.getElementById("lista-platos");
-
-    listaError.innerHTML = "No se pudieron cargar los platos típicos.";
-
+    listaError.replaceChildren("No se pudieron cargar los platos típicos.");
     console.error("Error al consultar la API:", error);
-});
+  });
